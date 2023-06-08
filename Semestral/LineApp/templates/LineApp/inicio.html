@@ -1,0 +1,280 @@
+{% extends 'LineApp/p_inicio.html' %}
+{% load static %}
+
+    {% block titulo %}
+    <title>LineApp</title>
+    {% endblock titulo %}
+
+    {% block content %}
+
+    <!--SEGUNDA FILA DE CONTENIDO-->
+    <div class="row sticky-top">
+      {% if request.user.is_staff %}
+      <div class="container bg-danger bg-opacity-75">
+          <h1 id="titulo" class="text-white d-flex justify-content-center"> vista de Moderador</h1> 
+      </div>
+    {% endif %}
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-opacity-75">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="btnMenuAvatar" role="button" data-bs-toggle="dropdown"
+                  aria-expanded="true">
+                  Agentes
+                </a>
+                <!--MENU DE AGENTES-->
+                <ul id="dropdown-menu-avatar" class="dropdown-menu dropdown-menu-dark"
+                  aria-labelledby="navbarDarkDropdownMenuLink">
+                  <div class="row">
+                    <div class="col-6 col-sm-3" id="avatar0"></div>
+                    <div class="col-6 col-sm-3" id="avatar1"></div>
+                    <div class="col-6 col-sm-3" id="avatar2"></div>
+                    <div class="col-6 col-sm-3" id="avatar3"></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6 col-sm-3" id="avatar4"></div>
+                    <div class="col-6 col-sm-3" id="avatar5"></div>
+                    <div class="col-6 col-sm-3" id="avatar6"></div>
+                    <div class="col-6 col-sm-3" id="avatar7"></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6 col-sm-3" id="avatar8"></div>
+                    <div class="col-6 col-sm-3" id="avatar9"></div>
+                    <div class="col-6 col-sm-3" id="avatar10"></div>
+                    <div class="col-6 col-sm-3" id="avatar11"></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6 col-sm-3" id="avatar12"></div>
+                    <div class="col-6 col-sm-3" id="avatar13"></div>
+                    <div class="col-6 col-sm-3" id="avatar14"></div>
+                    <div class="col-6 col-sm-3" id="avatar15"></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6 col-sm-3" id="avatar16"></div>
+                    <div class="col-6 col-sm-3" id="avatar17"></div>
+                    <div class="col-6 col-sm-3" id="avatar18"></div>
+                    <div class="col-6 col-sm-3" id="avatar19"></div>
+                  </div>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <!--MENU DE MAPAS-->
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  Mapas
+                </a>
+                <ul id="dropdown-menu-mapa" class="dropdown-menu dropdown-menu-dark"
+                  aria-labelledby="navbarDropdownMenuLink">
+                  <li><a class="dropdown-item Ascent" href="/filtroMapa/Ascent">ASCENT</a></li>
+                  <li><a class="dropdown-item Bind" href="/filtroMapa/Bind">BIND</a></li>
+                  <li><a class="dropdown-item Breeze" href="/filtroMapa/Breeze">BREEZE</a></li>
+                  <li><a class="dropdown-item Haven" href="/filtroMapa/Haven">HAVEN</a></li>
+                  <li><a class="dropdown-item Icebox" href="/filtroMapa/Icebox">ICEBOX</a></li>
+                  <li><a class="dropdown-item Split" href="/filtroMapa/Split">SPLIT</a></li>
+                  <li><a class="dropdown-item Fracture" href="/filtroMapa/Fracture">FRACTURE</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/filtroBando/1">ATK</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/filtroBando/2">DEF</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <!-- Los videos -->
+    <div class="container">
+      <div class="row carta">
+        {% for Lineup in lista %}
+        <!-- INICIO DE CARD -->
+        <div class="col-md-3 col-12 main_card" style="margin-top: 25px;">
+          <div class="card border-danger bg-dark text-white">
+            <!-- mapa a renderizar -->
+            
+            <div id ="{{ Lineup.idLine }}" class="card-header {{ Lineup.mapa }}">
+              <img src="../../static/LineApp/img/Avatar/{{ Lineup.agente }}.png" alt="avatar" class="avatar" >
+            </div>
+            <iframe height="230" src="{{ Lineup.incorporacion }}" title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+            <div class="card-body">
+              <h5 class="card-title">{{ Lineup.titulo }}</h5>
+              <p class="card-text">{{ Lineup.descripcion }}</p>
+              <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal{{ Lineup.idLine }}">Ver
+                descripcion</button>
+              <!-- LA MAGIA -->
+              <!-- Creamos un input invisible, en el que guardamos con la propuedad value, el mapa que queríamos, -->
+              <!-- luego con las clase (mapa_variable) podemos venir a buscar el value ***.val()*** y lo pasamos a el javaScript -->
+             <input class="mapa_variable"  hidden type="text" value="{{ Lineup.mapa }}">  
+             <!-- <input class="agente_variable"  hidden type="text" value="{{ Lineup.agente }}">   -->
+              
+
+              <!-- MODAL / VER DESCRIPCION-->
+              <!-- INICIO MODAL -->
+              <div class="modal" id='modal{{ Lineup.idLine }}'>
+                <div class="modal-dialog modal-xl">
+                  <div class="modal-content bg-dark">
+                    
+                    <!-- CABEZA DEL MODAL -->
+                    <div id ="modal_avatar{{ Lineup.idLine }}" class="modal-header {{ Lineup.mapa }}">
+                      <div class="col-sm-3">
+                        <img src="../../static/LineApp/img/Avatar/{{ Lineup.agente }}.png" alt="avatar" class="avatar">
+                      </div>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <!-- CUERPO DEL MODAL -->
+                    <div class="modal-body">
+                      <div class="row">
+                        <div class="col-sm-12">
+                          <h5 class="card-title">{{ Lineup.titulo }}</h5>
+                          <h6 class="text-white">{{ Lineup.usuario.username }}</h6>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <iframe class="w-100 mh-100 border border-danger" style="height:300px"
+                            src="{{ Lineup.incorporacion }}" title="YouTube video player"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="row">
+                            <div class="col-sm-12">
+                              <p class="card-text fs-3">Explicación:</p>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-12">
+                              <p class="card-text">{{ Lineup.descripcion }}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <p class="card-text">Fecha: {{ Lineup.fecha }}</p>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                            <form action="{% url 'like' Lineup.idLine %}" method="post">
+                              {% csrf_token %}
+                              <input type="hidden" name="next" value="{{ request.path }}">
+                            <button type="submit" class="btn btn-primary"><i class="bi bi-hand-thumbs-up"></i></button>
+                            </form>
+                            <p class="text-white">{{ Lineup.like.all.count }}</p>
+                            <form action="{% url 'dislike' Lineup.idLine %}" method="post">
+                              {% csrf_token %}
+                              <input type="hidden" name="next" value="{{ request.path }}">
+                            <button type="submit" class="btn btn-danger"><i class="bi bi-hand-thumbs-down"></i></button>
+                            </form>
+                            <p class="text-white">{{ Lineup.dislike.all.count }}</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <form action="{% url 'comentar' Lineup.idLine %}" method="post">
+                          {% csrf_token %}
+                          <input type="text" placeholder="Escribir comentario..." id="comen" name="comen" class="form-control bg-dark text-white">
+                          <button type="submit" class="btn btn-danger mt-2">Comentar</button>
+                        </form>
+                      </div>
+                      <div class="row">
+                        {% for c in comentarios %}
+                        {% if c.lineUp.idLine == Lineup.idLine %}
+                        <div class="col-sm-12 border-top">
+                          <div class="row">
+                            <div class="col-sm-12">
+                              <p class="card-text">{{ c.usuario.username }}</p>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-11">
+                              <h5 class="card-text">{{ c.comen }}</h5>
+                            </div>
+                            <div class="col-sm-1">
+                              {% if request.user.is_staff or c.usuario == request.user %}
+                              <form action="{% url 'borrar_comen' c.idComentario %}">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-danger mb-2">Borrar</button>
+                              </form>
+                              {% endif %}
+                            </div>
+                          </div>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                      </div>
+                    </div>
+                    <!-- PIE DE MODAL -->
+
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- FIN DE LA MODAL -->
+              <!--ACA VA EL MODAL DEL MAPA-->
+
+            </div>
+          </div>
+          <!-- fin card -->
+
+        </div>
+
+        {% endfor %}
+      </div>
+    </div>
+    <!-- Fin Videos -->
+
+    <!--PAGINACION-->
+    <center>
+    <div class="row">
+      <div class="row mt-3 justify-content-center">
+        <nav>
+            <ul class="pagination">
+                {% if lista.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link link-danger bg-dark border-danger" href="?page=1">Inicio</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link link-danger bg-dark border-danger" href="?page={{ lista.previous_page_number }}">&laquo;</a>
+                    </li>
+                {% endif %}
+    
+                {% for pagina in paginas %}
+                    <li class="page-item {% if pagina_actual == pagina %}active{% endif %}">
+                        <a href="?page={{ pagina }}" class="page-link link-danger bg-dark border-danger">{{ pagina }}</a>
+                    </li>
+                {% endfor %}
+    
+                {% if lista.has_next %}
+                    <li class="page-item">
+                        <a class="page-link link-danger bg-dark border-danger" href="?page={{ lista.next_page_number }}">&raquo;</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link link-danger bg-dark border-danger" href="?page={{ lista.paginator.num_pages }}">Fin</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+    </div>
+  </center>
+  {% endblock content %}
+
+
+    {% block script %}
+    <script src="{% static 'LineApp/js/Info.js' %}"></script>
+    <script src="{% static 'LineApp/js/mapas.js' %}"></script>
+    {% endblock script %}
