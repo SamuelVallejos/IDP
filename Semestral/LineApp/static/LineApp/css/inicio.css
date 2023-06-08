@@ -1,14 +1,14 @@
 @font-face {
     font-family: 'valorant font';
-    src: url('/web/font/Valorant\ Font.ttf');
+    src: url('/web/font/Valorant\ MetalVengeance-0WqV9.ttf');
 }
 @font-face{
     font-family: 'ff mark';
-    src: url('/web/font/fontFont_FF.Mark.Pro.otf');
+    src: url('/web/font/NewRocker-Regular.otf');
 }
 body{
     background-color: white;
-    background-image: url(/web/img/ValoFondo.jpg);
+    background-image: url(/web/img/fondolinea.jpg);
     background-repeat: no-repeat;
     background-size: 100%;
     overflow-y: hidden;
