@@ -16,18 +16,14 @@
     {% endif %}
     </div>
 
-    <!-- Los videos -->
+    <!-- Los Productos -->
     <div class="container">
       <div class="row carta">
         {% for Lineup in lista %}
         <!-- INICIO DE CARD -->
         <div class="col-md-3 col-12 main_card" style="margin-top: 25px;">
-          <div class="card border-danger bg-dark text-white">
+          <div class="card bg-dark text-white">
             <!-- mapa a renderizar -->
-            
-            <div id ="{{ Lineup.idLine }}" class="card-header {{ Lineup.mapa }}">
-              <img src="../../static/LineApp/img/Avatar/{{ Lineup.agente }}.png" alt="avatar" class="avatar" >
-            </div>
             <iframe height="230" src="{{ Lineup.incorporacion }}" title="YouTube video player"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen></iframe>
@@ -36,11 +32,7 @@
               <p class="card-text">{{ Lineup.descripcion }}</p>
               <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal{{ Lineup.idLine }}">Ver
                 descripcion</button>
-              <!-- LA MAGIA -->
-              <!-- Creamos un input invisible, en el que guardamos con la propuedad value, el mapa que queríamos, -->
-              <!-- luego con las clase (mapa_variable) podemos venir a buscar el value ***.val()*** y lo pasamos a el javaScript -->
-             <input class="mapa_variable"  hidden type="text" value="{{ Lineup.mapa }}">  
-             <!-- <input class="agente_variable"  hidden type="text" value="{{ Lineup.agente }}">   -->
+             <input class="mapa_variable"  hidden type="text" value="{{ Lineup.mapa }}">
               
 
               <!-- MODAL / VER DESCRIPCION-->
@@ -48,23 +40,9 @@
               <div class="modal" id='modal{{ Lineup.idLine }}'>
                 <div class="modal-dialog modal-xl">
                   <div class="modal-content bg-dark">
-                    
-                    <!-- CABEZA DEL MODAL -->
-                    <div id ="modal_avatar{{ Lineup.idLine }}" class="modal-header {{ Lineup.mapa }}">
-                      <div class="col-sm-3">
-                        <img src="../../static/LineApp/img/Avatar/{{ Lineup.agente }}.png" alt="avatar" class="avatar">
-                      </div>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                    </div>
 
                     <!-- CUERPO DEL MODAL -->
-                    <div class="modal-body">
-                      <div class="row">
-                        <div class="col-sm-12">
-                          <h5 class="card-title">{{ Lineup.titulo }}</h5>
-                          <h6 class="text-white">{{ Lineup.usuario.username }}</h6>
-                        </div>
-                      </div>
+                    <div class="modal-body">               
                       <div class="row">
                         <div class="col-sm-6">
                           <iframe class="w-100 mh-100 border border-danger" style="height:300px"
@@ -75,7 +53,7 @@
                         <div class="col-sm-6">
                           <div class="row">
                             <div class="col-sm-12">
-                              <p class="card-text fs-3">Explicación:</p>
+                              <h5 class="card-title">{{ Lineup.titulo }}</h5>
                             </div>
                           </div>
                           <div class="row">
@@ -84,34 +62,6 @@
                             </div>
                           </div>
                         </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-sm-6">
-                          <p class="card-text">Fecha: {{ Lineup.fecha }}</p>
-                        </div>
-                        <div class="col-sm-6">
-                          <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                            <form action="{% url 'like' Lineup.idLine %}" method="post">
-                              {% csrf_token %}
-                              <input type="hidden" name="next" value="{{ request.path }}">
-                            <button type="submit" class="btn btn-primary"><i class="bi bi-hand-thumbs-up"></i></button>
-                            </form>
-                            <p class="text-white">{{ Lineup.like.all.count }}</p>
-                            <form action="{% url 'dislike' Lineup.idLine %}" method="post">
-                              {% csrf_token %}
-                              <input type="hidden" name="next" value="{{ request.path }}">
-                            <button type="submit" class="btn btn-danger"><i class="bi bi-hand-thumbs-down"></i></button>
-                            </form>
-                            <p class="text-white">{{ Lineup.dislike.all.count }}</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <form action="{% url 'comentar' Lineup.idLine %}" method="post">
-                          {% csrf_token %}
-                          <input type="text" placeholder="Escribir comentario..." id="comen" name="comen" class="form-control bg-dark text-white">
-                          <button type="submit" class="btn btn-danger mt-2">Comentar</button>
-                        </form>
                       </div>
                       <div class="row">
                         {% for c in comentarios %}
@@ -141,10 +91,14 @@
                       </div>
                     </div>
                     <!-- PIE DE MODAL -->
-
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                    </div>
+                      <div class="row">
+                        <div class="col-6" >
+                          <h2 style="margin-left: 20px;"> Precio : {{ Lineup.mapa }} </h2>
+                        </div>
+                        <div class="col-6">
+                          <button type="button" class="btn btn-danger boton-derecha" data-bs-dismiss="modal"><i class="bi bi-cart"> Agregar al carro</i></button>
+                        </div>
+                      </div>
                   </div>
                 </div>
               </div>

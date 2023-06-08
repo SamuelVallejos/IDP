@@ -1,10 +1,11 @@
 @font-face {
-    font-family: 'valorant font';
-    src: url('/web/font/Valorant\ MetalVengeance-0WqV9.ttf');
+    font-family: 'MetalVengeance-0WqV9';
+    src: url('../font/MetalVengeance-0WqV9.ttf');
 }
-@font-face{
-    font-family: 'ff mark';
-    src: url('/web/font/NewRocker-Regular.otf');
+
+@font-face {
+    font-family: 'NewRocker';
+    src: url('../font/NewRocker-Regular.otf');
 }
 body{
     background-color: white;
@@ -15,7 +16,7 @@ body{
 }
 p{
     color: rgba(12,24,36,255);
-    font-family: "ff mark";
+    font-family: "NewRocker";
     position: relative;
     top: -1000px;
 }
