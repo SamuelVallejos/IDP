@@ -8,7 +8,7 @@
     box-sizing: border-box;
 }
 
-#contenedor-carga {
+/* #contenedor-carga {
     background-color: rgba(0, 0, 0, 0.9);
     width: 100%;
     height: 100%;
@@ -17,7 +17,7 @@
     -o-transition: all 1s ease;
     transition: all 1s ease;
     z-index: 10000;
-}
+} */
 
 #carga {
     border: 12px solid rgb(255, 0, 0);
@@ -58,13 +58,13 @@
 }
 
 body,
-html {
+html    {
     height: 100%;
 }
 
 .bg {
     /* The image used */
-    background-image: url("../img/fondolinea.jpg");
+    background-image: url("../img/fondolinea.png");
     /* Full height */
     height: 100%;
     /* Center and scale the image nicely */
@@ -76,7 +76,7 @@ html {
 
 .bg2 {
     /* The image used */
-    background-image: url("../img/fondolinea.jpg");
+    background-image: url("../img/fondolinea.png");
     /* Full height */
     height: 100%;
     /* Center and scale the image nicely */
@@ -88,7 +88,7 @@ html {
 
 .bg3 {
     /* The image used */
-    background-image: url("../img/fondolinea.jpg");
+    background-image: url("../img/fondolinea.png");
     /* Full height */
     height: 100%;
     /* Center and scale the image nicely */
@@ -100,7 +100,7 @@ html {
 
 .bg4 {
     /* The image used */
-    background-image: url("../img/fondolinea.jpg");
+    background-image: url("../img/fondolinea.png");
     /* Full height */
     height: 100%;
     /* Center and scale the image nicely */
