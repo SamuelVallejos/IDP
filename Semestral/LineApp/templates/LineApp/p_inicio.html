@@ -19,37 +19,21 @@
         <div id="carga">
         </div>
     </div>
-<div class="container bg-dark bg-opacity-75">
+
     <!--PRIMERA FILA Y MENU PRINCIPAL-->
-    <div class="row">
     <nav class="navbar nv navbar-expand-lg navbar-dark bg-dark bg-opacity-75">
         <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'inicio' %}" id="titulo">MusicPro</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{% url 'inicio' %}">Inicio</a>
-            </li>
-            {% if request.user.is_staff %}
-                <li class="nav-item">
-                    <a class="nav-link bi bi-pencil-square text-danger"  href="{% url 'listar' %}">Agregar Producto</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link bi bi-pencil-square text-danger"  href="{% url 'listar' %}">Modificar Producto</a>
-                </li>
-            {% endif %}
-            </ul>
-        </div>
+            <a class="navbar-brand" href="{% url 'inicio' %}" id="titulo">MusicPro</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
         </div>
         <div class="dropdown bg-dark float-end">
-        <button class="btn btn-secondary dropdown-toggle bg-dark border border-danger" type="button"
-            id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="bi bi-person-circle"></i>
-        </button>
+            <button class="btn btn-secondary dropdown-toggle bg-dark border border-dark" type="button"
+                id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="bi bi-person-circle"></i>
+            </button>
         <div class="dropdown-menu dropdown-menu-dark" style="z-index: 9999;" aria-labelledby="dropdownMenuButton">
             {% if request.user.is_authenticated %}
             <a class="dropdown-item" href="{% url 'perfil' %}">Perfil</a>
@@ -59,18 +43,67 @@
             <a class="dropdown-item" href="{% url 'registro' %}">Registrarse</a>
             {% endif %}
         </div>
-        </div>
     </nav>
-    {% if messages %}
-    {% for message in messages %}
-    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-        {{ message.message }}
-        <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-    {% endfor %}
-    {% endif %}
+
+
+                <!-- CARRUCELL -->
+
+
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+          <!-- Slide One - Set the background image for this slide in the line below -->
+          <div class="carousel-item active" style="background-image: url('https://3.bp.blogspot.com/-_7vaKiNZPXk/XCWoF-0xj7I/AAAAAAAAAMk/Bx7Ne5WLEvINHPDoG1jwY6rGO2d62pprwCKgBGAs/s1600/ux-design.jpeg')">
+            <div class="carousel-caption d-none d-md-block">
+              <h2 class="display-4">First Slide</h2>
+              <p class="lead">This is a description for the first slide.</p>
+            </div>
+          </div>
+          <!-- Slide Two - Set the background image for this slide in the line below -->
+          <div class="carousel-item" style="background-image: url('https://4.bp.blogspot.com/-InDD3Hm_bhU/XB4_TK3TT7I/AAAAAAAAAJ4/r5tUeCOqq1MTchFh7D7pWdf582A4qYIIwCEwYBhgL/s1600/Businesswoman-working-at-a-computer-1280x720.jpg')">
+            <div class="carousel-caption d-none d-md-block">
+              <h2 class="display-4">Second Slide</h2>
+              <p class="lead">This is a description for the second slide.</p>
+            </div>
+          </div>
+          <!-- Slide Three - Set the background image for this slide in the line below -->
+          <div class="carousel-item" style="background-image: url('https://1.bp.blogspot.com/-GWl5F8P4t-8/XB4_VV4VE5I/AAAAAAAAAKE/SmHRzas-LpMpDBoLn6otR9AznVsr6L7OgCEwYBhgL/s1600/t1larg.africa.cnn.jpg')">
+            <div class="carousel-caption d-none d-md-block">
+              <h2 class="display-4">Third Slide</h2>
+              <p class="lead">This is a description for the third slide.</p>
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+      </div>
+
+    <!-- FILTROS -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-opacity-75">
+        <ul class="navbar-nav">
+            <div style="margin-left: 70%;">
+                <li class="nav-item">
+                    <h1><a class="nav-link" href="/filtroBando/1">Instrumentos</a></h1>
+                </li>
+            </div>
+            <div style="margin-left: 70%;">
+                <li class="nav-item">
+                <h1><a class="nav-link" href="/filtroBando/2">Accesorios</a></h1>
+                </li>
+            </div>
+        </ul>
+    </nav>
+
     {% block content %}
     {% endblock content %}
 </div>
@@ -88,3 +121,23 @@
 </body>
 
 </html>
+
+<!-- Segunda Fila -->
+<div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'inicio' %}">Instrumentos</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'inicio' %}">Accesorios</a>
+        </li>
+        {% if request.user.is_staff %}
+        <li class="nav-item">
+            <a class="nav-link bi bi-pencil-square text-danger"  href="{% url 'listar' %}">Agregar Producto</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link bi bi-pencil-square text-danger"  href="{% url 'listar' %}">Modificar Producto</a>
+        </li>
+        {% endif %}
+    </ul>
+</div>

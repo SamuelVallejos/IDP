@@ -8,32 +8,47 @@ $(document).ready(function () {
     }
 
     const campos = {
-        pass : false,
-        email : false
+        pass: false,
+        email: false
     }
 
     const validacion = (e) => {
-        switch (e.target.name){
-            case "email" :
+        switch (e.target.name) {
+            case "email":
                 validarCampo(expresiones.correo, e.target, "email");
-            break;
-            case "pass" :
+                break;
+            case "pass":
                 validarCampo(expresiones.password, e.target, "pass");
-            break;
+                break;
         }
     }
+
+    const botonIncremento = document.querySelector('.boton-incremento');
+    const botonDecremento = document.querySelector('.boton-decremento');
+    const campoCantidad = document.querySelector('#cantidad');
+
+    botonIncremento.addEventListener('click', function () {
+        campoCantidad.stepUp();
+    });
+
+    botonDecremento.addEventListener('click', function () {
+        if (campoCantidad.value > campoCantidad.min) {
+            campoCantidad.stepDown();
+        }
+    });
+
     const validarCampo = (expre, input, campo) => {
-        if(expre.test(input.value)){
-            $("#ini-"+campo).removeClass("is-invalid");
-            $("#ini-"+campo).addClass("is-valid");
-            $("#msj-"+campo).removeClass("d-block");
-            $("#msj-"+campo).addClass("d-none");
+        if (expre.test(input.value)) {
+            $("#ini-" + campo).removeClass("is-invalid");
+            $("#ini-" + campo).addClass("is-valid");
+            $("#msj-" + campo).removeClass("d-block");
+            $("#msj-" + campo).addClass("d-none");
             campos[campo] = true;
-        }else{
-            $("#ini-"+campo).removeClass("is-valid");
-            $("#ini-"+campo).addClass("is-invalid");
-            $("#msj-"+campo).removeClass("d-none");
-            $("#msj-"+campo).addClass("d-block");
+        } else {
+            $("#ini-" + campo).removeClass("is-valid");
+            $("#ini-" + campo).addClass("is-invalid");
+            $("#msj-" + campo).removeClass("d-none");
+            $("#msj-" + campo).addClass("d-block");
             campos[campo] = false;
         }
     }
@@ -41,7 +56,7 @@ $(document).ready(function () {
         input.addEventListener('keyup', validacion);
         input.addEventListener('blur', validacion);
     });
-    $("#ini").submit(function(){
+    $("#ini").submit(function () {
         event.preventDefault();
     })
 });
