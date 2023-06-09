@@ -11,6 +11,9 @@ from django.core.paginator import Paginator
 
 
 
+def carrito(request):
+    return render(request,'LineApp/carrito.html')
+
 def AcercaDe(request):
     return render(request,'LineApp/AcercaDe.html')
 

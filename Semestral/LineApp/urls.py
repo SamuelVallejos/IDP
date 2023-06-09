@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from .views import CustomLoginView, borrar_comen,inicio,AcercaDe,perfil,ranking,registro,subirvideo,editarperfil,listar,eliminar_video, act_perfil, editarVideo, act_video, v_perfil, m_perfil, filtroAgen, filtroMapa, filtroBando, like,dislike,comentar, borrar_comen
+from .views import CustomLoginView, borrar_comen,inicio,AcercaDe,perfil,ranking,registro,subirvideo,editarperfil,carrito,listar,eliminar_video, act_perfil, editarVideo, act_video, v_perfil, m_perfil, filtroAgen, filtroMapa, filtroBando, like,dislike,comentar, borrar_comen
 from django.contrib.auth.views import LoginView,LogoutView
 from django.contrib.auth.decorators import login_required
 
@@ -23,6 +23,7 @@ urlpatterns = [
     path('editarVideo/<int:idLine>',login_required(editarVideo),name="editarVideo"),
     path('act_video/<int:idLine>',login_required(act_video),name="act_video"),
     path('editarperfil/',login_required(editarperfil),name="editarperfil"),
+    path('carrito/',carrito,name="carrito"),
     path('act_perfil/',login_required(act_perfil),name="act_perfil"),
     path('listar/',login_required(listar),name="listar"),
     path('eliminar_video/<int:idLine>',login_required(eliminar_video),name="eliminar_video"),

@@ -127,11 +127,11 @@ html {
     transition: 0.3s;
 }
 
-#titulo {
+#titulo,a {
     font-family: "MetalVengeance-0WqV9";
 }
 
-a,
+
 h6,
 h5,
 h3,
@@ -290,4 +290,10 @@ input[type="number"] {
     margin-right: auto;
     width: 100%;
     height: auto;
+}
+.car{
+    height: 40rem;
+}
+.at{
+    color:rgb(218, 218, 218);
 }

@@ -2,90 +2,140 @@
 
 {% load static %}
 
-    {% block titulo %}
-    <title>MusicPro </title>
-    {% endblock titulo %}
+{% block titulo %}
+<title>MusicPro</title>
+{% endblock titulo %}
 
-    {% block content %}
+{% block content %}
 
-    <!-- Los Productos -->
-    <div class="container">
-      <div class="row carta">
+<!-- CARRUCELL -->
+<div class="container-fluid">
+    <div id="demo" class="carousel slide" data-bs-ride="carousel" style="margin-top: 1rem;">
+
+        <!-- Indicators/dots -->
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+        </div>
+
+        <!-- The slideshow/carousel -->
+        <div class="carousel-inner car ">
+            <div class="carousel-item active">
+                <center><img src="../../static/LineApp/img/C1.jpg" alt="Los Angeles" class="d-block w-75 car"></center>
+            </div>
+            <div class="carousel-item">
+                <center><img src="../../static/LineApp/img/C3.png" alt="Chicago" class="d-block w-75 car"></center>
+            </div>
+            <div class="carousel-item">
+                <center><img src="../../static/LineApp/img/C2.jpg" alt="New York" class="d-block w-75 car"></center>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FILTROS -->
+<div class="row bg-dark bg-opacity-75" style="margin-top:1rem">
+    <div class="col-1">
+    </div>
+    <div class="col-5">
+        <center>
+            <h1><a class="nav-link at" href="/filtroBando/1" style="margin-top:1rem">Instrumentos</a></h1>
+        </center>
+    </div>
+    <div class="col-5">
+        <center>
+            <h1><a class="nav-link at " href="/filtroBando/2" style="margin-top:1rem">Accesorios</a></h1>
+        </center>
+    </div>
+    <div class="col-1">
+    </div>
+</div>
+
+<!-- Los Productos -->
+<div class="container">
+    <div class="row carta">
         {% for Lineup in lista %}
         <!-- INICIO DE CARD -->
-        <div class="col-md-3 col-12 main_card" style="margin-top: 25px;" type="button" data-bs-toggle="modal" data-bs-target="#modal{{ Lineup.idLine }}">
-          <div class="card bg-dark text-white">
-            <!-- IMAGEN -->
-            <img class="img1" style="margin-top: 10px;" src="../../static/LineApp/img/71DsbrkeQ0L.jpg">
-              <!-- TITULO  -->
-            <div class="card-body">
-              <div class="col-sm-12" >
-                <h5 class="card-title centrado">{{ Lineup.titulo }}</h5>
-              </div>
-            <!-- PRECIO -->
-              <div class="col-sm-12" >
-                <h2 class="centrado"> $ {{ Lineup.mapa }} </h2>
-              </div>
-
-              <!-- MODAL / VER DESCRIPCION-->
-              <!-- INICIO MODAL -->
-              <div class="modal" id='modal{{ Lineup.idLine }}'>
-                <div class="modal-dialog modal-xl">
-                  <div class="modal-content bg-dark">
-                    <!-- CUERPO DEL MODAL -->
-                    <div class="modal-body">
-                          <!-- IMAGEN PRODUCTO -->        
-                      <div class="row">
-                        <div class="col-sm-6">
-                          <img class="img2" src="../../static/LineApp/img/71DsbrkeQ0L.jpg">
-                        </div>
-                        <div class="col-sm-6">
-                          <!-- NOMBRE PRODUCTO -->
-                          <div class="row">
-                            <div class="col-sm-12">
-                              <h5 class="card-title">{{ Lineup.titulo }}</h5>
-                            </div>
-                          </div>
-                          <!-- DESCRIPCION PRODUCTO -->
-                          <div class="row">
-                            <div class="col-sm-12">
-                              <p class="card-text">{{ Lineup.descripcion }}</p>
-                            </div>
-                          </div>
-                          <!-- PRECIO / AGREGAR CARRITO PRODUCTO -->
-                          <div class="row">
-                            <div class="col-sm-12" >
-                              <h2 style="margin-left: 20px;"> $ {{ Lineup.mapa }} </h2>
-                            </div>
-                            <div class="cantidad col-sm-6 derecha">
-                              <h5>Cantidad : </h5>
-                              <button class="boton-decremento btn-darker" style="margin-right:0.2rem; margin-left: 5px;">-</button>
-                              <input class="btn-darker" type="number" id="cantidad" name="cantidad" min="1" value="1">
-                              <button class="boton-incremento btn-darker" style="margin-left:0.2rem">+</button>
-                            </div>
-                            <div class="col-sm-6 derecha">
-                              <button type="button" class="btn btn-darker" style="margin-right: 10px;" data-bs-dismiss="modal"><i class="bi bi-cart"> Agregar al carro</i></button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+        <div class="col-md-3 col-12 main_card" style="margin-top: 25px;" type="button" data-bs-toggle="modal"
+            data-bs-target="#modal{{ Lineup.idLine }}">
+            <div class="card bg-dark text-white">
+                <!-- IMAGEN -->
+                <img class="img1" style="margin-top: 10px;" src="../../static/LineApp/img/71DsbrkeQ0L.jpg">
+                <!-- TITULO  -->
+                <div class="card-body">
+                    <div class="col-sm-12">
+                        <h5 class="card-title centrado">{{ Lineup.titulo }}</h5>
                     </div>
-                  </div>
+                    <!-- PRECIO -->
+                    <div class="col-sm-12">
+                        <h2 class="centrado"> $ {{ Lineup.mapa }} </h2>
+                    </div>
+
+                    <!-- MODAL / VER DESCRIPCION-->
+                    <!-- INICIO MODAL -->
+                    <div class="modal" id='modal{{ Lineup.idLine }}'>
+                        <div class="modal-dialog modal-xl">
+                            <div class="modal-content bg-dark">
+                                <!-- CUERPO DEL MODAL -->
+                                <div class="modal-body">
+                                    <!-- IMAGEN PRODUCTO -->
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <img class="img2" src="../../static/LineApp/img/71DsbrkeQ0L.jpg">
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <!-- NOMBRE PRODUCTO -->
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <h5 class="card-title">{{ Lineup.titulo }}</h5>
+                                                </div>
+                                            </div>
+                                            <!-- DESCRIPCION PRODUCTO -->
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <p class="card-text">{{ Lineup.descripcion }}</p>
+                                                </div>
+                                            </div>
+                                            <!-- PRECIO / AGREGAR CARRITO PRODUCTO -->
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <h2 style="margin-left: 20px;"> $ {{ Lineup.mapa }} </h2>
+                                                </div>
+                                                <div class="cantidad col-sm-6 derecha">
+                                                    <h5>Cantidad : </h5>
+                                                    <button class="boton-decremento btn-darker"
+                                                        style="margin-right:0.2rem; margin-left: 5px;">-</button>
+                                                    <input class="btn-darker" type="number" id="cantidad"
+                                                        name="cantidad" min="1" value="1">
+                                                    <button class="boton-incremento btn-darker"
+                                                        style="margin-left:0.2rem">+</button>
+                                                </div>
+                                                <div class="col-sm-6 derecha">
+                                                    <button type="button" class="btn btn-darker"
+                                                        style="margin-right: 10px;" data-bs-dismiss="modal"><i
+                                                            class="bi bi-cart"> Agregar al carro</i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- FIN DE LA MODAL -->
                 </div>
-              </div>
-              <!-- FIN DE LA MODAL -->
             </div>
-          </div>
         </div>
         <!-- fin card -->
         {% endfor %}
-      </div>
     </div>
-    <!-- Fin Videos -->
+</div>
+<!-- Fin Videos -->
 
-  {% endblock content %}
+{% endblock content %}
 
-    {% block script %}
-    <script src="{% static 'LineApp/js/Info.js' %}"></script>
-    <script src="{% static 'LineApp/js/mapas.js' %}"></script>
-    {% endblock script %}
+{% block script %}
+<script src="{% static 'LineApp/js/Info.js' %}"></script>
+<script src="{% static 'LineApp/js/mapas.js' %}"></script>
+{% endblock script %}
