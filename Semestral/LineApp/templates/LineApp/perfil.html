@@ -6,108 +6,41 @@
 {% endblock titulo %}
 
 {% block content %}
-<div class="col-12 p-3">
-</div>
-<!--titulo-->
-<div class="col-12 p-3">
-</div>
-<div class="col-12 d-flex justify-content-center">
-    <caption>
-        <h5 class="  text-danger mb-0 ">Mi perfil</h5>
-    </caption>
-    <p></p>
-</div>
+
 <!--carta-->
-<div class="card bg-dark">
-    <div class="card-header">
-        <br>
-        <img src="{% static 'LineApp/img/perfil.png' %}" id="perfil-img" height="200px" width="200px">
-        <br><br><br><br>
-    </div>
-    <div class="card-body">
-        <div class="row">
-            <div class="col-sm-6">
-                <div class="container text-white" id="container1">
-                    <p class="name"> Nombre : {{ request.user.username }}</p>
-                    <p href="#" class="mail text-white"> Correo : {{ request.user.email }}</p>
-                    <div class="">
-                        <a class="btn btn-danger bi bi-pencil-square " href="{% url 'm_perfil' %}"> Modificar tus
-                            videos</a>
+<div class="container" style="margin-top: 5%;">
+    <div class="card bg-dark">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-2">
+                </div>
+                <div class="col-sm-7">
+                    <div class="container bg-darker text-white">
+                        <h2 class="text-white">Editar perfil</h2>
                     </div>
-                    <br>
-                    <br><br>
+                </div>
+                <div class="col-1">
+                    <a class="fa-solid fa-pen  btn-darker" href="{% url 'editarperfil' %}" role="button"
+                        id="social"></a>
+                </div>
+                <div class="col-2">
                 </div>
             </div>
-            <div class="col-sm-6">
-                <br>
-                <div class="container bg-danger text-white" id="container0">
-                    <p class="text-white  ">Editar perfil</p>
+            <div class="row">
+                <div class="col-3">
                 </div>
-                <div class="social-links text-white">
-                    <div class="container" id="container1">
-                        <a class="fa-solid fa-pen social-icon " href="{% url 'editarperfil' %}" role="button"
-                            id="social"></a>
-                    </div>
+                <div class="col-6">
+                    <p class="name text-white"> Nombre : {{ request.user.username }}</p>
+                    <p class="mail text-white"> Correo : {{ request.user.email }}</p>
+                    <p class="mail text-white"> Dirección : Mi casa</p>
                 </div>
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-12">
-                <div class="container" id="container1">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="container bg-danger text-white" id="container0">
-                                <p class="name text-white ">Videos del usuario: </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        {% for v in videos %}
-                        <div class="col-sm-6">
-                            <iframe class="w-100 mh-100 border border-danger" style="height:300px"
-                                src="{{ v.incorporacion }}" title="YouTube video player"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen></iframe>
-                        </div>
-                        {% endfor %}
-                    </div>
-                    <div class="row mb-5 mt-5">
-                        <div class="col-5"></div>
-                        <div class="col-2">
-                            <a class="btn btn-danger" href="{% url 'v_perfil' %}">Ver todos los videos</a>
-                        </div>
-                        <div class="col-5"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--botones de redes -->
-        <div class="container" id="container1">
-            <div class="social-links">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="container bg-danger text-white " id="container0">
-                            <p class="name text-white">Redes del usuario:</p>
-                        </div>
-                        <br><br>
-                        <div class="row d-flex justify-content-center">
-                            <a href="https://www.instagram.com/luis_md_/" class="fab fa-instagram " id="social"></a>
-                            <a href="#" class="fab fa-twitter social-icon" id="social"></a>
-                            <a href="#" class="fab fa-facebook social-icon" id="social"></a>
-                        </div>
-                    </div>
+                <div class="col-3">
                 </div>
             </div>
         </div>
     </div>
-    <br>
 </div>
-<br><br>
 
-<!--pie de carta-->
-
-</div>
 {% endblock content %}
 
 {% block script %}

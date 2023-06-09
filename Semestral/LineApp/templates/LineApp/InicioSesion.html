@@ -1,21 +1,25 @@
 {% extends 'LineApp/inicio.html' %}
 {% load static %}
 
-    
-    {% block titulo %}
-    <title>Inicio sesion</title>
-    {% endblock titulo %}
-    
-    {% block content %}
-    <form method="POST" class="text-white">
-    {% csrf_token %}
-    
-    {{ form.as_p }}
 
-    <button type="submit" class="btn btn-danger">Iniciar sesion</button>
-    </form>
-    {% endblock content %}
-    
-    {% block script %}
-    <script src="{% static 'LineApp/js/Validacion-ini.js' %}"></script>
-    {% endblock script %}
+{% block titulo %}
+<title>Inicio sesion</title>
+{% endblock titulo %}
+
+{% block content %}
+
+<div class="container bg-dark bg-opacity-85" style="margin-top: 5%;">
+    <div style="margin-top: 20px;">    
+        <form method="POST" class="text-white">
+            {% csrf_token %}
+            {{ form.as_p }}
+        <button type="submit" class="btn btn-darker" >Iniciar sesion</button>
+        </form>
+    </div>
+</div>
+
+{% endblock content %}
+
+{% block script %}
+<script src="{% static 'LineApp/js/Validacion-ini.js' %}"></script>
+{% endblock script %}

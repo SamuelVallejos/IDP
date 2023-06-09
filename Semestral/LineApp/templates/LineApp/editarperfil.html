@@ -8,26 +8,17 @@
     {% block content %}
     
     <!--carta-->
-    <div class="card bg-dark">
-        <div class="card-header">
-            <img src="{% static 'LineApp/img/perfil.png' %}" alt="Profile Image" class="profile-img " height="100px" width="100px">
-            <div class="col-12 p-2">
-            </div>
-        </div>
-        <div class="card-body">
-            <p class="mail">Editar perfil</p>
-            <!--usuario-->
-            <div class="row">
-                <div class="col-12">
-                    <form action="{% url 'act_perfil' %}" method="post" class="text-white">
+    <div class="container bg-dark bg-opacity-85" style="margin-top: 5%;">   
+        <div class="row">
+            <div class="col-12">
+                <form action="{% url 'act_perfil' %}" method="post" class="text-white">
                         {{ form.as_p }}
                         {% csrf_token %}
-                        <button class="btn btn-danger">Cambiar</button>
-                    </form>
+                </form>
+                <div style="text-align: end;">
+                    <button class="btn btn-darker">Cambiar</button>
                 </div>
-
             </div>
-
         </div>
     </div>
     {% endblock content %}

@@ -7,9 +7,76 @@
 
 {% block content %}
 
-<!-- Si no a iniciado sesion -->
-
+{% if request.user.is_authenticated %}
 <!-- si no a añadido nada -->
+
+<div class="container">
+    <div class="card bg-dark ">
+        <div class="card-body bg-dark ">
+            <div class="container text-white bg-darker" id="titulo">
+                <h3>Mis Productos</h3>
+            </div>
+            <table class="table table-stripped table-hover table-responsive-sm">
+                <tr>
+                    <th class="text-white">Titulo</th>
+                    <th class="text-white">Descripcion</th>
+                    <th class="text-white">Eliminar</th>
+                </tr>
+                <!-- Datos -->
+                {% for v in videos %}
+                <tr>
+                    <td class="text-white">{{ v.titulo | title }}</td>
+                    <td class="text-white">{{ v.descripcion }}</td>
+                    <td> <a href="{% url 'eliminar_video' v.idLine %}" class="btn bg-danger text-white btn-sm "> Eliminar </a></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+ 
+        <!-- Todo relacionado con comprar -->
+        <div class="card-body bg-dark">
+            <div style="text-align: end;">
+                <a class="btn login-button btn-darker"><h2>Comprar</h2></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container" style="margin-top: 5%;">
+    <div class="col-sm-12 centrado">
+        <div class="col-sm-12 bg-dark bg-opacity-85 text-white">
+            <h1 >
+                Tu Carro está vacío
+            </h1>            
+            <h3>
+                Debes añadir por lo minimo 1 producto
+            </h3>
+        </div>
+        <div class="col-sm-12">
+            <a class="btn login-button btn-dark" href="{% url 'inicio' %}"><h2>Volver al inicio</h2></a>
+        </div>
+    </div>
+</div>
+
+{% else %}
+
+<!-- Si no a iniciado sesion -->
+<div class="container" style="margin-top: 5%;">
+    <div class="col-sm-12 centrado">
+        <div class="col-sm-12">
+            <h1 class="bg-dark bg-opacity-85 text-white">
+                Debes iniciar sesion para poder comprar algun producto
+            </h1>
+        </div>
+        <div class="col-sm-12">
+            <a class="btn login-button btn-dark" href="{% url 'InicioSesion' %}"><h2>Iniciar sesión</h2></a>
+        </div>
+    </div>
+</div>
+
+{% endif %}
+
+
 
 <!-- Productos agregados -->
 

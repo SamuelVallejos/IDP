@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 bando = [(-1,"Seleccionar")
         ,(1,"ATK")
         ,(2,"DEF")]
-# Create your models here.
+
 class Lineup (models.Model):
     idLine = models.AutoField(primary_key=True, verbose_name="Id del line up")
     titulo = models.CharField(max_length=50,blank=False,null=False,verbose_name="Titulo del line up")

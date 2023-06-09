@@ -1,0 +1,17 @@
+Producto
+    Id_producto (auto inclementable)
+    Nombre
+    Descripcion 
+    Precio
+    Imagen
+
+Carrito
+    id_compra   (auto inclementable)
+
+usuario
+    Nombre  (5 a 999 letras)
+    Correo  (5 a 999 letras)
+    Contraseña  (2)
+    Direccion
+    rut
+    Direccion de facturazion

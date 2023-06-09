@@ -1,14 +1,12 @@
 {% extends 'LineApp/p_inicio.html' %}
 
 {% block content %}
-
 <div class="card bg-dark ">
-    <br><br>
     <div class="card-body bg-dark ">
-        <div class="container text-white bg-danger" id="titulo">Eliminar videos</div>
-        
-        <table class=" table table-stripped table-hover table-responsive-sm">
-
+        <div class="container text-white bg-danger" id="titulo">
+            Eliminar videos
+        </div>
+        <table class="table table-stripped table-hover table-responsive-sm">
             <tr>
                 <th class="text-white">Video</th>
                 <th class="text-white">Titulo</th>
@@ -16,8 +14,7 @@
                 <th class="text-white">Eliminar</th>
                 <th class="text-white">Editar</th>
             </tr>
-    
-            
+
             {% for v in videos %}
             <tr>
                 <td class="text-white"><iframe src="{{ v.incorporacion }}" frameborder="0"></iframe></td>
@@ -26,13 +23,9 @@
                 <td > <a href="{% url 'eliminar_video' v.idLine %}" class="btn bg-danger text-white btn-sm "> Eliminar </a></td>
                 <td><a href="{% url 'editarVideo' v.idLine %}" class="btn btn-primary btn-sm">Editar</a></td>
             </tr>
-            
             {% endfor %}
-        </table>
 
+        </table>
     </div>
 </div>
-
-
-
 {% endblock %}

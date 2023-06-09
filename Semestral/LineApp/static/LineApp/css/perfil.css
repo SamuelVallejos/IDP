@@ -157,3 +157,11 @@ a,h5,h6,h3,label,button,p{
     font-size: 20px;
     border-radius: 15px;
 }
+.btn-darker {
+    background-color: black;
+    color: white;
+}
+.bg-darker{
+    color:black;
+    background-color: black;
+}
