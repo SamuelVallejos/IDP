@@ -48,6 +48,25 @@
             </center>
         </div>
     </div>
+    {% if request.user.is_staff %}
+
+    <div class="row bg-dark bg-opacity-75" style="margin-top:1rem">
+        <div class="col-6">
+            <center>
+    <li class="nav-item">
+        <a class="nav-link bi bi-upload text-danger" href="{% url 'subirproducto' %}">Agregar Productos</a>
+    </li>
+            </center>
+        </div>
+        <div class="col-6">
+            <center>
+    <li class="nav-item">
+        <a class="nav-link bi bi-pencil-square text-danger"  href="{% url 'listar' %}">Modificar Productos</a>
+    </li>
+            </center>
+        </div>
+    </div>
+{% endif %}
 </div>
 
 <!-- Los Productos -->
@@ -59,7 +78,10 @@
             data-bs-target="#modal{{ Lineup.idLine }}">
             <div class="card bg-dark text-white">
                 <!-- IMAGEN -->
-                <img class="img1" style="margin-top: 10px;" src="../../static/LineApp/img/71DsbrkeQ0L.jpg">
+                <iframe class="w-100 mh-100 border border-danger" style="height:300px"
+                src="{{ Lineup.incorporacion }}" title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
                 <!-- TITULO  -->
                 <div class="card-body">
                     <div class="col-sm-12">
@@ -80,7 +102,10 @@
                                     <!-- IMAGEN PRODUCTO -->
                                     <div class="row">
                                         <div class="col-sm-6">
-                                            <img class="img2" src="../../static/LineApp/img/71DsbrkeQ0L.jpg">
+                                            <iframe class="w-100 mh-100 border border-danger" style="height:300px"
+                                            src="{{ Lineup.incorporacion }}" title="YouTube video player"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowfullscreen></iframe>
                                         </div>
                                         <div class="col-sm-6">
                                             <!-- NOMBRE PRODUCTO -->
@@ -129,7 +154,6 @@
         {% endfor %}
     </div>
 </div>
-<!-- Fin Videos -->
 
 {% endblock content %}
 

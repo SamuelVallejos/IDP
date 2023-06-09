@@ -54,15 +54,13 @@ class VideoForm(forms.ModelForm):
 
     class Meta:
         model = Lineup
-        fields = ['titulo', 'agente', 'mapa', 'bando', 'descripcion', 'incorporacion']
+        fields = ['titulo', 'bando', 'descripcion', 'incorporacion']
         help_texts = {k: "" for k in fields}
         labels = {
-            'titulo': 'Título',
-            'agente': 'Agente',
-            'mapa': 'Mapa',
-            'bando': 'Bando',
+            'Nombre': 'Título',
+            'bando': 'Tipo Producto',
             'descripcion': 'Descripción',
-            'incorporacion': 'Incorporación',
+            'incorporacion': 'Imagen',
         }
         widgets = {
             'titulo': forms.TextInput(attrs={

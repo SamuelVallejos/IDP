@@ -3,17 +3,17 @@ from django_userforeignkey.models.fields import UserForeignKey
 from django.contrib.auth.models import User
 
 bando = [(-1,"Seleccionar")
-        ,(1,"ATK")
-        ,(2,"DEF")]
+        ,(1,"Instrumentos")
+        ,(2,"Accesorios")]
 
 class Lineup (models.Model):
     idLine = models.AutoField(primary_key=True, verbose_name="Id del line up")
-    titulo = models.CharField(max_length=50,blank=False,null=False,verbose_name="Titulo del line up")
+    titulo = models.CharField(max_length=50,blank=False,null=False,verbose_name="Nombre Producto")
     agente = models.CharField(max_length=30,blank=False,null=False,verbose_name="Agente del line up")
     mapa = models.CharField(max_length=30,blank=False,null=False,verbose_name="Mapa del line up")
     bando = models.IntegerField(blank=False,null=False,verbose_name="Bando del line up",choices=bando,default=-1)
     descripcion = models.CharField(max_length=200,blank=False,null=False,verbose_name="Descripcion del line up")
-    incorporacion = models.CharField(max_length=200,blank=False,null=False,verbose_name="Incorporacion del line up")
+    incorporacion = models.CharField(max_length=200,blank=False,null=False,verbose_name="Imagen")
     like = models.ManyToManyField(User,blank=True,related_name='likes')
     dislike = models.ManyToManyField(User,blank=True,related_name='dislikes')
     fecha = models.DateTimeField(auto_now_add=True, verbose_name="Fecha de creacion", null=True)

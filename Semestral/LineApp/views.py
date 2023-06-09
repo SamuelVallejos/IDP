@@ -11,8 +11,12 @@ from django.core.paginator import Paginator
 
 
 
-def carrito(request):
-    return render(request,'LineApp/carrito.html')
+def carrito(request):   
+    videos= Lineup.objects.all()
+    data ={
+        'videos':videos
+    }
+    return render (request,'LineApp/carrito.html',data)
 
 def AcercaDe(request):
     return render(request,'LineApp/AcercaDe.html')
@@ -88,7 +92,7 @@ def filtroBando(request, band):
     return render(request,'LineApp/inicio.html', data)
 
 
-def subirvideo(request):
+def subirproducto(request):
     if request.method == 'POST':
         form = VideoForm(request.POST)
         if form.is_valid():
@@ -100,7 +104,7 @@ def subirvideo(request):
         form = VideoForm()
     
     contexto = { 'form' : form }
-    return render(request,'LineApp/subirvideo.html', contexto)
+    return render(request,'LineApp/subirproducto.html', contexto)
 
 def editarVideo(request,idLine):
     video = Lineup.objects.get(pk=idLine)

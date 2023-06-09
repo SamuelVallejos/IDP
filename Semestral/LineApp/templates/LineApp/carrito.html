@@ -18,27 +18,38 @@
             </div>
             <table class="table table-stripped table-hover table-responsive-sm">
                 <tr>
+                    <th class="text-white"></th>
                     <th class="text-white">Titulo</th>
                     <th class="text-white">Descripcion</th>
+                    <th class="text-white">Precio</th>
                     <th class="text-white">Eliminar</th>
                 </tr>
                 <!-- Datos -->
                 {% for v in videos %}
                 <tr>
+                    <td class="text-white"><iframe src="{{ v.incorporacion }}" frameborder="0" class="foto"></iframe></td>
                     <td class="text-white">{{ v.titulo | title }}</td>
                     <td class="text-white">{{ v.descripcion }}</td>
-                    <td> <a href="{% url 'eliminar_video' v.idLine %}" class="btn bg-danger text-white btn-sm "> Eliminar </a></td>
+                    <td class="text-white">${{ v.mapa }}</td>
+                    <td> <a href="{% url 'eliminar_video' v.idLine %}" class="btn btn-darker text-white btn-sm "> Eliminar </a></td>
                 </tr>
                 {% endfor %}
             </table>
         </div>
  
         <!-- Todo relacionado con comprar -->
-        <div class="card-body bg-dark">
-            <div style="text-align: end;">
-                <a class="btn login-button btn-darker"><h2>Comprar</h2></a>
+        <div class="container">
+        <div class="row card-body bg-dark">
+            <div class="col-10" style="text-align: end;">
+                <h1 class="text-white">
+                    Total: $23123123
+                </h1>
+            </div>
+            <div class="col-2" style="text-align: end;">
+                <a class="btn login-button btn-darker"><h3>Comprar</h3></a>
             </div>
         </div>
+    </div>
     </div>
 </div>
 

@@ -12,7 +12,6 @@
                 <th class="text-white">Titulo</th>
                 <th class="text-white">Descripcion</th>
                 <th class="text-white">Eliminar</th>
-                <th class="text-white">Editar</th>
             </tr>
 
             {% for v in videos %}
@@ -21,7 +20,6 @@
                 <td class="text-white">{{ v.titulo | title }}</td>
                 <td class="text-white">{{ v.descripcion }}</td>
                 <td > <a href="{% url 'eliminar_video' v.idLine %}" class="btn bg-danger text-white btn-sm "> Eliminar </a></td>
-                <td><a href="{% url 'editarVideo' v.idLine %}" class="btn btn-primary btn-sm">Editar</a></td>
             </tr>
             {% endfor %}
 

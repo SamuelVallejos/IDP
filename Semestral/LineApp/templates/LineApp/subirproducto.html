@@ -1,0 +1,86 @@
+{% extends 'LineApp/p_inicio.html' %}
+{% load static %}
+
+    {% block titulo %}
+    <title>Subir video</title>
+    {% endblock titulo %}
+
+    {% block content %}
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-8">
+          <h1 class="text-white d-flex justify-content-start" style="text-align: center;">Agregar producto</h1>
+      </div>
+      <div class="col-3"></div>
+  </div>
+  <div class="row">
+      <div class="col-md-1">
+      </div>
+      <div class="col-md-10 margin-top:10px;">
+          <form action="{% url 'subirproducto' %}" method="POST" class="text-white" id="formsubirvideo">
+          {{ form.as_p }}
+          {% csrf_token %}
+          <p class="d-none text-white" id="msj-titul"> El NOMBRE tiene que tener entre 3 a 30 caracteres </p>
+          <p class="d-none text-white" id="msj-agente"> Seleccione un agente </p>
+          <p class="d-none text-white" id="msj-mapa"> Agrege Costo </p>
+          <p class="d-none text-white" id="msj-bando"> Seleccione tipo </p>
+          <p class="d-none text-white" id="msj-descripcion"> La descripción tiene que tener entre 3 a 200 caracteres </p>
+          <p class="d-none text-white" id="msj-incorporacion"> Link erroneo </p>
+          <button type="submit" class="btn btn-darker">Agregar</button>
+        </form>
+      </div>
+      <div class="col-md-1">
+      </div>
+  </div>
+  <!--MODAL INCORPORAR VIDEO-->
+<div class="modal" id="Modal10000">
+<div class="modal-dialog modal-xl">
+<div class="modal-content bg-dark">                                                          
+  <!-- CABEZA DEL MODAL -->
+  <div class="modal-header bg-danger">
+    <div class="col-12">
+      <h4 class="text-white"> ¿Que es una Incorporación?</h4>
+    </div>
+  </div>
+  <!-- CUERPO DEL MODAL -->
+    <div class="modal-body">
+      <div class="row">
+          <div class="col-sm-12">
+              <div class="row">
+                  <div class="col-1"></div>
+                  <div class="col-10">
+                      <h5 class="text-white">Aqui podremos econtrar nuestra Incorporación del video que queremos subir:</h5>
+                      <br>
+                      <p class="text-white"> Antes que todo hay que tener en cuenta que el video que quieres subir tiene que antes haberse subido a Youtube.</p> 
+                      <br>
+                      <h6 class="text-white">Paso numero uno:</h6>
+                      <img src="img/incorporacion/1.png" class="img-fluid" alt="1">
+                      <p class="text-white">En primer lugar habrá que seleccionar la opción compartir video, del video que se quiere subir , todo desde la página de YouTube.</p> 
+                      <br>
+                      <h6 class="text-white">Paso numero dos:</h6>
+                      <img src="img/incorporacion/2.png" class="img-fluid" alt="2">
+                      <p class="text-white"> En segundo lugar habrá que seleccionar la opción de Incorporación.</p> 
+                      <br>
+                      <h6 class="text-white">Paso numero tres:</h6>
+                      <img src="img/incorporacion/3.png" class="img-fluid" alt="3">
+                      <p class="text-white"> Y por ultimo habrá que copiar el texto que saldrá en el recuadro que estará entre las comillas del src, este será la incorporación.</p> 
+                  </div>
+                  <div class="col-1"></div>
+              </div>
+        </div>
+      </div> 
+    </div> 
+    <!-- PIE DE MODAL -->
+    <div class="modal-footer">
+      <div class="row">
+        <div class="col-12">
+          <button type="button" class="btn btn-danger btn-sm text-white" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+</div>
+    {% endblock content %}
+
+    {% block script %}
+    <script src="{% static 'LineApp/js/Validacion-subirvideo.js' %}"></script>
+    <script src="{% static 'LineApp/js/info2.js' %}"></script>
+    {% endblock script %}
