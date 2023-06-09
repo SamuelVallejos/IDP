@@ -44,9 +44,15 @@ function crearOrdenPago() {
 
     // Agrega la firma a los parámetros
     var params = {
+        apiKey: '26FC7924-EE7C-46C5-8852-84F7B988L590',
+        commerceOrder: '1',
+        subject: 'Guitarra entera wena',
+        email: 'correo@correo.cl',
+        urlConfirmation: 'http://localhost:8000/carrito/',
+        urlReturn: 'http://localhost:8000/carrito/',
         s: '5269228904d151863511068deee92b722f6a82cc',// Reemplazar 'signature' con tu firma de Flow
         currency: "CLP",
-        monto: '100'
+        amount: '100'
     };
 
     console.log('Parámetros de la solicitud:', params);
