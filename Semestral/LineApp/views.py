@@ -87,7 +87,7 @@ def filtroMapa(request, mapa):
     data = {"lista": Lineup.objects.filter(mapa=mapa).order_by('idLine')[:16]}
     return render(request,'LineApp/inicio.html', data)
 
-def filtroBando(request, band):
+def filtroi(request, band):
     data = {"lista": Lineup.objects.filter(bando=band).order_by('idLine')[:16]}
     return render(request,'LineApp/inicio.html', data)
 

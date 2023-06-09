@@ -303,7 +303,20 @@ input[type="number"] {
 .login-button {
     margin: 10px;
 }
-.foto{
-    height: 10rem;
+
+.foto {
+    height: 20rem;
     width: auto;
+}
+
+.foto2 {
+    height: auto;
+    width: 30rem;
+}
+
+.foto3{
+    height: auto;
+    width: 30rem;
+    max-height: 35rem;
+    max-width: 100rem;
 }

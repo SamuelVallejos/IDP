@@ -3,12 +3,12 @@
 {% block content %}
 <div class="card bg-dark ">
     <div class="card-body bg-dark ">
-        <div class="container text-white bg-danger" id="titulo">
-            Eliminar videos
+        <div class="container text-white bg-darker" id="titulo">
+            Eliminar Productos
         </div>
         <table class="table table-stripped table-hover table-responsive-sm">
             <tr>
-                <th class="text-white">Video</th>
+                <th class="text-white">Producto</th>
                 <th class="text-white">Titulo</th>
                 <th class="text-white">Descripcion</th>
                 <th class="text-white">Eliminar</th>
@@ -16,10 +16,11 @@
 
             {% for v in videos %}
             <tr>
-                <td class="text-white"><iframe src="{{ v.incorporacion }}" frameborder="0"></iframe></td>
+                <td class="text-white">
+                    <img src="{{ v.incorporacion }}" class="foto3"></td>
                 <td class="text-white">{{ v.titulo | title }}</td>
                 <td class="text-white">{{ v.descripcion }}</td>
-                <td > <a href="{% url 'eliminar_video' v.idLine %}" class="btn bg-danger text-white btn-sm "> Eliminar </a></td>
+                <td > <a href="{% url 'eliminar_video' v.idLine %}" class="btn btn-darker text-white btn-sm "> Eliminar </a></td>
             </tr>
             {% endfor %}
 

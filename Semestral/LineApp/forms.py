@@ -54,11 +54,12 @@ class VideoForm(forms.ModelForm):
 
     class Meta:
         model = Lineup
-        fields = ['titulo', 'bando', 'descripcion', 'incorporacion']
+        fields = ['titulo', 'bando', 'mapa', 'descripcion', 'incorporacion']
         help_texts = {k: "" for k in fields}
         labels = {
             'Nombre': 'Título',
             'bando': 'Tipo Producto',
+            'mapa': 'Precio',
             'descripcion': 'Descripción',
             'incorporacion': 'Imagen',
         }
@@ -73,9 +74,9 @@ class VideoForm(forms.ModelForm):
                 'placeholder': 'Agente',
                 'id': 'agente',
             }),
-            'mapa': forms.Select(attrs={
+            'mapa': forms.TextInput(attrs={
                 'class': 'form-control bg-dark text-white',
-                'placeholder': 'Mapa',
+                'placeholder': 'Precio $$$',
                 'id': 'mapa',
             }),
             'bando': forms.Select(attrs={

@@ -39,29 +39,29 @@
     <div class="row bg-dark bg-opacity-75" style="margin-top:1rem">
         <div class="col-6">
             <center>
-                <h1><a class="nav-link at" href="/filtroBando/1" style="margin-top:1rem">Instrumentos</a></h1>
+                <h1><a class="nav-link at" href="/filtroi/1" style="margin-top:1rem">Instrumentos</a></h1>
             </center>
         </div>
         <div class="col-6">
             <center>
-                <h1><a class="nav-link at " href="/filtroBando/2" style="margin-top:1rem">Accesorios</a></h1>
+                <h1><a class="nav-link at " href="/filtroi/2" style="margin-top:1rem">Accesorios</a></h1>
             </center>
         </div>
     </div>
     {% if request.user.is_staff %}
 
-    <div class="row bg-dark bg-opacity-75" style="margin-top:1rem">
+    <div class="row  bg-opacity-75" style="margin-top:1rem">
         <div class="col-6">
             <center>
     <li class="nav-item">
-        <a class="nav-link bi bi-upload text-danger" href="{% url 'subirproducto' %}">Agregar Productos</a>
+        <a class="nav-link bi bi-upload btn-darker" href="{% url 'subirproducto' %}">Agregar</a>
     </li>
             </center>
         </div>
         <div class="col-6">
             <center>
     <li class="nav-item">
-        <a class="nav-link bi bi-pencil-square text-danger"  href="{% url 'listar' %}">Modificar Productos</a>
+        <a class="nav-link bi bi-pencil-square btn-darker"  href="{% url 'listar' %}">Modificar</a>
     </li>
             </center>
         </div>
@@ -78,10 +78,7 @@
             data-bs-target="#modal{{ Lineup.idLine }}">
             <div class="card bg-dark text-white">
                 <!-- IMAGEN -->
-                <iframe class="w-100 mh-100 border border-danger" style="height:300px"
-                src="{{ Lineup.incorporacion }}" title="YouTube video player"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
+                <img src="{{ Lineup.incorporacion }}" class="foto"> 
                 <!-- TITULO  -->
                 <div class="card-body">
                     <div class="col-sm-12">
@@ -102,10 +99,7 @@
                                     <!-- IMAGEN PRODUCTO -->
                                     <div class="row">
                                         <div class="col-sm-6">
-                                            <iframe class="w-100 mh-100 border border-danger" style="height:300px"
-                                            src="{{ Lineup.incorporacion }}" title="YouTube video player"
-                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                            allowfullscreen></iframe>
+                                            <img src="{{ Lineup.incorporacion }}" class="foto2"> 
                                         </div>
                                         <div class="col-sm-6">
                                             <!-- NOMBRE PRODUCTO -->

@@ -27,7 +27,7 @@
                 <!-- Datos -->
                 {% for v in videos %}
                 <tr>
-                    <td class="text-white"><iframe src="{{ v.incorporacion }}" frameborder="0" class="foto"></iframe></td>
+                    <td class="text-white"><img src="{{ v.incorporacion }}" class="foto3"></td>
                     <td class="text-white">{{ v.titulo | title }}</td>
                     <td class="text-white">{{ v.descripcion }}</td>
                     <td class="text-white">${{ v.mapa }}</td>
