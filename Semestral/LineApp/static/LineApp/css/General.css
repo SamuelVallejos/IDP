@@ -314,9 +314,42 @@ input[type="number"] {
     width: 30rem;
 }
 
-.foto3{
+.foto3 {
     height: auto;
     width: 30rem;
     max-height: 35rem;
     max-width: 100rem;
+}
+
+.product {
+    margin-bottom: 10px;
+}
+
+.product .name {
+    font-weight: bold;
+}
+
+.product .price {
+    color: #888;
+}
+
+#cart {
+    margin-top: 20px;
+}
+
+#cart .item {
+    margin-bottom: 10px;
+}
+
+#cart .item .name {
+    font-weight: bold;
+}
+
+#cart .item .price {
+    color: #888;
+}
+
+#total {
+    margin-top: 20px;
+    font-weight: bold;
 }

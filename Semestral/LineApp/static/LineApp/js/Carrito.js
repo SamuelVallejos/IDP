@@ -21,5 +21,4 @@ $(document).ready(function (e) {
         carrito.innerHTML = '';
         total.innerText = '$0.00';
     }
-
 });

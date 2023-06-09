@@ -16,6 +16,13 @@
             <div class="container text-white bg-darker" id="titulo">
                 <h3>Mis Productos</h3>
             </div>
+            {% comment %} 
+            <div>
+                <h1>Verificar estado de pago</h1>
+                <button onclick="verificarEstadoPago()">Verificar Estado de Pago</button>
+            </div>
+            {% endcomment %}
+
             <table class="table table-stripped table-hover table-responsive-sm">
                 <tr>
                     <th class="text-white"></th>
@@ -46,11 +53,42 @@
                 </h1>
             </div>
             <div class="col-2" style="text-align: end;">
-                <a class="btn login-button btn-darker"><h3>Comprar</h3></a>
+                <a class="btn login-button btn-darker" onclick="crearOrdenPago()"><h3>Comprar</h3></a>
             </div>
         </div>
     </div>
+
+{% comment %} 
+    <h1>Carrito de Compras</h1>
+  
+    <div id="products">
+      <div class="product">
+        <span class="name">Producto 1</span>
+        <span class="price">$10</span>
+        <button onclick="agregarAlCarrito('Producto 1', 10)">Agregar al Carrito</button>
+      </div>
+      
+      <div class="product">
+        <span class="name">Producto 2</span>
+        <span class="price">$20</span>
+        <button onclick="agregarAlCarrito('Producto 2', 20)">Agregar al Carrito</button>
+      </div>
+      
+      <div class="product">
+        <span class="name">Producto 3</span>
+        <span class="price">$30</span>
+        <button onclick="agregarAlCarrito('Producto 3', 30)">Agregar al Carrito</button>
+      </div>
     </div>
+    
+    <div id="cart">
+      <h2>Carrito de Compras</h2>
+      <div id="cart-items"></div>
+      <div id="total"></div>
+      <button onclick="realizarPago()">Realizar Pago</button>
+    </div>
+    </div> {% endcomment %}
+
 </div>
 
 <div class="container" style="margin-top: 5%;">
@@ -92,3 +130,8 @@
 <!-- Productos agregados -->
 
 {% endblock content %}
+
+{% block script %}
+<script src="{% static 'LineApp/js/GetAndPost.js' %}"></script>
+<script src="{% static 'LineApp/js/testing.js' %}"></script>
+{% endblock script %}
